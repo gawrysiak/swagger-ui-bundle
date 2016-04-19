@@ -71,10 +71,6 @@
 
         {% if auth_config.http.enable %}
             $('#input_apiKey').change(addApiKeyAuthorization);
-            {% if auth_config.http.base_url %}
-                $('#input_baseUrl').val('{{ auth_config.http.base_url }}');
-            {% endif %}
-
             // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
             /*
               var apiKey = "myApiKeyXXXX123456789";
@@ -89,7 +85,11 @@
 
 {% block al_swagger_ui_auth_form %}
     <form id='api_selector'>
-        <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
+        <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"
+            {% if auth_config.http.base_url %}
+                value="{{ auth_config.http.base_url }}"
+            {% endif %}
+            /></div>
         <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
         <div class='input'><a id="explore" href="#">Explore</a></div>
     </form>
