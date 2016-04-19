@@ -67,6 +67,7 @@ class Configuration implements ConfigurationInterface
                                 ->children()
                                     ->booleanNode('enable')->defaultFalse()->end()
                                     ->scalarNode('key_name')->defaultValue(null)->end()
+                                    ->scalarNode('base_url')->defaultValue(null)->end()
                                     ->scalarNode('delivery')->defaultValue(null)->end()
                                 ->end()
                             ->end()

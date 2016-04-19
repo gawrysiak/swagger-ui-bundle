@@ -71,6 +71,9 @@
 
         {% if auth_config.http.enable %}
             $('#input_apiKey').change(addApiKeyAuthorization);
+            {% if auth_config.http.base_url %}
+                $('#input_baseUrl').val('{{ auth_config.http.base_url }}');
+            {% endif %}
 
             // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
             /*
